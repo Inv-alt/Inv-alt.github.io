@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+
+<title>Boda Angélica &amp; Betto</title>
+<meta name="description" content="Viernes 26 de febrero de 2027 · Nos encantaría que nos acompañes">
+
+<!-- Tarjeta de vista previa en WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Boda Angélica &amp; Betto">
+<meta property="og:description" content="Viernes 26 de febrero de 2027 · Nos encantaría que nos acompañes">
+<meta property="og:image" content="https://inv-alt.github.io/portada.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://inv-alt.github.io/">
+<meta name="theme-color" content="#eef0e6">
+
+<style>
+  [hidden] { display: none !important; }
+  html, body { margin: 0; height: 100%; background: #eef0e6; overflow: hidden; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; border: 0; display: block; }
+  /* Pantalla de espera: aparece al instante mientras Google prepara la invitación */
+  .espera {
+    position: fixed; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+    background: #eef0e6; color: #6f8460; font-family: Georgia, 'Times New Roman', serif; text-align: center; padding: 24px;
+    transition: opacity .6s ease;
+  }
+  .espera.lista { opacity: 0; pointer-events: none; }
+  .espera .nombres { font-size: 1.6rem; letter-spacing: .14em; text-transform: uppercase; }
+  .espera .texto { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; color: #66705c; }
+  .espera svg { width: 46px; height: 46px; animation: volar 1.8s ease-in-out infinite; }
+  .espera a { color: #6f8460; font-size: .9rem; }
+  @keyframes volar { 0%, 100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(-8px) rotate(45deg); } }
+  @media (prefers-reduced-motion: reduce) { .espera svg { animation: none; } }
+</style>
+</head>
+<body>
+  <div class="espera" id="espera">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+    <div class="nombres">Angélica &amp; Betto</div>
+    <div class="texto">Preparando tu invitación…</div>
+    <a id="respaldo" href="" hidden>¿Tarda mucho? Ábrela aquí</a>
+  </div>
+  <iframe id="inv" 
+    src="https://script.google.com/macros/s/AKfycbzmKTqxKoONpPhfLodqfaw0n_wjc7d0Qn4DyhEAiBEitmzD2YotwO-tXNSQ221gHekSWw/exec?id=6e311de8e4fd"
+    title="Invitación de boda de Angélica y Betto"
+    allow="autoplay; clipboard-write; fullscreen">
+  </iframe>
+  <script>
+    // Quita la pantalla de espera cuando la invitación terminó de cargar. Si tarda, ofrece abrirla directo.
+    (function () {
+      var marco = document.getElementById('inv'), espera = document.getElementById('espera'), resp = document.getElementById('respaldo');
+      resp.href = marco.src;
+      marco.addEventListener('load', function () { espera.classList.add('lista'); setTimeout(function () { espera.hidden = true; }, 700); });
+      setTimeout(function () { resp.hidden = false; }, 12000);
+    })();
+  </script>
+  <!-- respaldo sin JavaScript -->
+  <noscript><a href="https://script.google.com/macros/s/AKfycbzmKTqxKoONpPhfLodqfaw0n_wjc7d0Qn4DyhEAiBEitmzD2YotwO-tXNSQ221gHekSWw/exec?id=6e311de8e4fd">Abrir la invitación</a></noscript>
+</body>
+</html>
